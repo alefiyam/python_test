@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',  # API development
     'list_question_answers',
-    'api'
+    'api',
+    'oauth2_provider', # oauth2
 ]
 
 MIDDLEWARE = [
@@ -106,6 +108,19 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# API development 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        #'oauth2_provider.ext.rest_framework.OAuth2Authentication',
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ) 
+}
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -119,7 +134,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+ACCESS_TOKEN = "Hs8nuGnL6miHktcSe22I4eDHhZKW6H"
+API_BASE = "http://localhost:8000/api/" 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 

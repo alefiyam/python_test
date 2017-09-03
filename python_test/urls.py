@@ -19,4 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('list_question_answers.urls')),
+    url(r'^', include('api.urls')),
+    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ]

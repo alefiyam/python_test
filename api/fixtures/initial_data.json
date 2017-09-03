@@ -89,5 +89,14 @@
     }
   }
 
+  {
+    "model": "api.answer",
+    "pk": 3,
+    "fields": {
+      "body": "Python language is developed under an OSI-approved open source license, which makes it free to use and distribute, including for commercial purposes. Further, its development is driven by the community which collaborates for its code through hosting conferences and mailing lists, and provides for its numerous modules.",
+      "question_id": "1",
+      "user_id": "1"
+    }
+  }
 
 ]

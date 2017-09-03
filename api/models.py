@@ -41,3 +41,9 @@ class Tenant(models.Model):
     api_key = models.CharField(max_length=100)
     date_added = models.DateTimeField(default=timezone.now)
     date_modified = models.DateTimeField(default=timezone.now)
+
+
+class Count(models.Model):
+    count_per_day = models.IntegerField(default=0)
+    date = models.DateTimeField(default=timezone.now)
+    tenant = models.ForeignKey(Tenant, on_delete=models.PROTECT)
