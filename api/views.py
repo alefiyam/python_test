@@ -17,26 +17,32 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import JsonResponse
-from .models import Question , Answer
-# from rest_framework.decorators import permission_classes
-# from oauth2_provider.decorators import rw_protected_resource
-# from oauth2_provider.decorators import protected_resource
-# from oauth2_provider.ext.rest_framework import TokenHasReadWriteScope, TokenHasScope
+from .models import *
 
 @csrf_exempt
 @api_view(['GET'])
 def get_user_id(request):
-    username = str(request.GET['username'])
-    user = User.objects.filter(username=username)
-    user_id = user[0].id
-    user_content = {'user_id': user_id}
+    user_content = {}
+    username = request.GET.get('username', None)
+    if username != u'None':
+        user = User.objects.get(username=username)
+        if not user:
+            return Response({'user_id': None})
+        user_content = {'user_id': user.id}
     return Response(user_content)
 
 @csrf_exempt
 @api_view(['GET'])
 def get_que_ans(request):
+    if(Count.objects.count()<=0):
+        x=Count.objects.create()
+        x.save()
+    else:
+        x=Count.objects.all()[0]
+        x.count_per_day=x.count_per_day+1
+        x.save()
+
     list_of_dict = []
-    # username = str(request.GET.get('username'), None)
     user_id = str(request.GET['user_id'])
     questions = Question.objects.filter(private=False)
     for question in questions:

@@ -44,6 +44,5 @@ class Tenant(models.Model):
 
 
 class Count(models.Model):
-    count_per_day = models.IntegerField(default=0)
+    count_per_day = models.IntegerField(default=1)
     date = models.DateTimeField(default=timezone.now)
-    tenant = models.ForeignKey(Tenant, on_delete=models.PROTECT)
