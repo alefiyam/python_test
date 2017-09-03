@@ -1,0 +1,93 @@
+[
+  { "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "amit",
+            "password": "amit123",
+            "first_name": "Amit",
+            "last_name": "Gupta"
+        }
+  },
+  
+  { "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "raj",
+            "password": "raj123",
+            "first_name": "Raj",
+            "last_name": "Gupta"
+        }
+  },
+
+  { "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "seema",
+            "password": "seema123",
+            "first_name": "Seema",
+            "last_name": "Gupta"
+        }
+  },
+
+  { "model": "auth.user",
+        "pk": 4,
+        "fields": {
+            "username": "yash",
+            "password": "yash123",
+            "first_name": "Yash",
+            "last_name": "Gupta"
+        }
+  },
+
+  {
+    "model": "api.question",
+    "pk": 1,
+    "fields": {
+      "title": "what are advantages of python ?",
+      "private": "False",
+      "user_id": "1"
+    }
+  },
+
+  {
+    "model": "api.question",
+    "pk": 2,
+    "fields": {
+      "title": "what are disadvantages of python ?",
+      "private": "False",
+      "user_id": "1"
+    }
+  },
+
+  {
+    "model": "api.question",
+    "pk": 3,
+    "fields": {
+      "title": "What is Python really? You can (and are encouraged) make comparisons to other technologies in your answer ?",
+      "private": "True",
+      "user_id": "1"
+    }
+  },
+
+  {
+    "model": "api.answer",
+    "pk": 1,
+    "fields": {
+      "body": "It provides large standard libraries that include the areas like string operations, Internet, web service tools, operating system interfaces and protocols. Most of the highly used programming tasks are already scripted into it that limits the length of the codes to be written in Python.",
+      "question_id": "1",
+      "user_id": "2"
+    }
+  },
+
+  {
+    "model": "api.answer",
+    "pk": 2,
+    "fields": {
+      "body": "With its strong process integration features, unit testing framework and enhanced control capabilities contribute towards the increased speed for most applications and productivity of applications. It is a great option for building scalable multi-protocol network applications.",
+      "question_id": "1",
+      "user_id": "3"
+    }
+  }
+
+
+]
