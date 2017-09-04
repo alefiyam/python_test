@@ -32,7 +32,6 @@ def get_que_ans(request):
         try:
             url = settings.API_BASE + "get_que_ans/"
             username = str(request.GET.get('username', None))
-
             response = requests.get(settings.API_BASE + "get_user_id/", headers={'Authorization': 'Bearer {}'.format(user_token)} , params = {'username': username})
             content =  response.json()
             user_id = content['user_id']

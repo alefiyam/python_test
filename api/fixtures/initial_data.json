@@ -87,7 +87,7 @@
       "question_id": "1",
       "user_id": "3"
     }
-  }
+  },
 
   {
     "model": "api.answer",

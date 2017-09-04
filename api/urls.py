@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'^api/get_que_ans/$', views.get_que_ans ,name = 'get_api_que_ans'),
     url(r'^api/get_user_id/$', views.get_user_id ,name = 'get_user_id'),
     url(r'^api/dashboard/$', views.dashboard ,name = 'dashboard'),
-    url(r'^api/term/$', views.get_que_by_search_term ,name = 'term')
+    url(r'^api/get_que_by_search_term/$', views.get_que_by_search_term ,name = 'get_que_by_search_term')
 ]
 urlpatterns = format_suffix_patterns(urlpatterns) 
