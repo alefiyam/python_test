@@ -38,6 +38,12 @@
 	            </tr>
 	        </tbody>    
 	    </table>
+	    {% elif content.question_list %}
+	    	{{ content }}
+	    {% elif content.no_questions %}
+	    	{{ content }}
+	    {% elif content.empty_search %}
+	    	{{ content }}
 	    {% else %}
 	    	{{ content }}
 	    {% endif %}

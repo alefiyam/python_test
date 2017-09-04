@@ -60,3 +60,35 @@ def get_que_ans(request):
     print(list_of_dict)
     content = {'ques_ans_set': list_of_dict}
     return Response(content)
+
+@csrf_exempt
+@api_view(['GET'])
+def dashboard(request):
+    content = {}
+    content['questions_count'] = Question.objects.count()
+    content['answer_count'] = Answer.objects.count()
+    content['users_count'] = User.objects.count()
+    content['visit_count'] = Count.objects.all().first().count_per_day
+    return Response(content)
+
+@csrf_exempt
+@api_view(['GET'])
+def get_que_by_search_term(request):
+    search_term = request.GET.get('search_term', None)
+    if search_term:
+        questions_list = []
+        questions = Question.objects.filter(
+            title__contains = search_term).values_list(
+            'title', flat=True)
+        if questions:
+            for que in questions:
+                questions_list.append(que)
+            questions_list = json.dumps(questions_list)
+            content = { 'question_list': questions_list }
+            return Response(content)
+        else:
+            content = {'no_questions': "No Question Found"}
+            return Response(content)
+    else:
+        content = {"empty_search": "Enter Search term in URL"}
+        return Response(content)

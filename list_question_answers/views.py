@@ -41,13 +41,28 @@ def get_que_ans(request):
             content =  response.json()
             return render(request, 'list_question_answers/index.html', {'content': content['ques_ans_set']})
         except:
-            content = {}
-            content['questions_count'] = Question.objects.count()
-            content['answer_count'] = Answer.objects.count()
-            content['users_count'] = User.objects.count()
-            content['visit_count'] = Count.objects.all().first().count_per_day
+            response = requests.get(settings.API_BASE + 'dashboard/', headers={'Authorization': 'Bearer {}'.format(user_token)})
+            content = response.json()
             return render(request, 'list_question_answers/index.html', {'content': content})
     else:
         content = "Please Provide Valid Credentials"
         return render(request, 'list_question_answers/index.html', {'content': content})
             
+def get_que_by_search_term(self):
+    payload = {}
+    search_term = request.GET.get('term', None)
+    user_token = settings.ACCESS_TOKEN
+
+    if user_token:
+        payload['search_term'] = search_term
+        response = requests.get(settings.API_BASE + 'get_que_by_search_term/', headers={'Authorization': 'Bearer {}'.format(user_token)}, params=payload)
+        content = response.json()
+        if 'question_list' in content:
+            content = content['question_list']
+        elif 'no_questions' in content:
+            content = content['no_questions']
+        return render(request, 'list_question_answers/index.html', {'content': content})
+    else:
+        content = 'Please provide valid crdentials'
+        return render(request, 'list_question_answers/index.html', {'content': content})
+
