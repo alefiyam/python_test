@@ -128,6 +128,8 @@ REST_FRAMEWORK = {
     } 
 }
 
+OAUTH2_PROVIDER = {'ACCESS_TOKEN_EXPIRE_SECONDS': 31536000}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -142,7 +144,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-ACCESS_TOKEN = "qqKE5cU224I5agX2XriPdpmtRVtv5X"
+ACCESS_TOKEN = "2QujMdX4nZOB9HgN4WMa1nxFmefg8Z"
 API_BASE = "http://localhost:8000/api/" 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
