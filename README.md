@@ -39,3 +39,26 @@ To start this application just run the following command
 this will start the Django server, you can access the applicaiton on your browser using this url.
 
 	http://localhost:8000/
+
+create a superadmin by using command : python manage.py createsuperuser
+
+Go on admin panel by url : http://localhost:8000/admin
+and login by admin credentials 
+
+In django oauth toolkit
+create a application , select admin in user field,
+confidential in client type
+Resource owner password-based in authorization grant type
+
+By following above steps application is created.
+ 
+To create token use curl command :
+
+curl -X POST -d "grant_type=password&username='<admin_username>'&password='<admin_password>'" -u '<client_id>:<client_secret>' 'localhost:8000/o/token/'
+
+Mention clientid ,clientsecret ,admin username and password in above curl command
+this will generate a token.
+
+Set above generated token in settings.py file and start the application by 
+python manage.py runserver.
+
