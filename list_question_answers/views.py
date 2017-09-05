@@ -47,7 +47,7 @@ def get_que_ans(request):
         content = "Please Provide Valid Credentials"
         return render(request, 'list_question_answers/index.html', {'content': content})
             
-def get_que_by_search_term(self):
+def get_que_by_search_term(request):
     payload = {}
     search_term = request.GET.get('term', None)
     user_token = settings.ACCESS_TOKEN

@@ -9,4 +9,4 @@ urlpatterns = [
     url(r'^api/dashboard/$', views.dashboard ,name = 'dashboard'),
     url(r'^api/get_que_by_search_term/$', views.get_que_by_search_term ,name = 'get_que_by_search_term')
 ]
-urlpatterns = format_suffix_patterns(urlpatterns) 
+urlpatterns = format_suffix_patterns(urlpatterns)

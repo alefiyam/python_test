@@ -142,7 +142,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-ACCESS_TOKEN = "Hs8nuGnL6miHktcSe22I4eDHhZKW6H"
+ACCESS_TOKEN = "qqKE5cU224I5agX2XriPdpmtRVtv5X"
 API_BASE = "http://localhost:8000/api/" 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
